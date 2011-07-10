@@ -1,7 +1,7 @@
 
 # Sunbathe
 
-  Templates of the future today.
+  Layouts of the future today.
 
 ## License
 

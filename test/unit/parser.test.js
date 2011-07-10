@@ -18,11 +18,19 @@ var createParser = function() {
 };
 
 describe('When parsing input', function(it) {
-  it('finds a template token', function(test) {
+  it('finds a simple layout token', function(test) {
     var parser = createParser();
-    var parsedFile = parser.parse("template: index");
+    var parsedFile = parser.parse("layout: index");
 
-    parsedFile.templates.should.eql([{ name: 'index' }]);
+    parsedFile.layouts.should.eql([{ name: 'index' }]);
+    test.finish();
+  });
+
+  it('finds a more complex layout token', function(test) {
+    var parser = createParser();
+    var parsedFile = parser.parse("layout: another crazy layout");
+
+    parsedFile.layouts.should.eql([{ name: 'another crazy layout' }]);
     test.finish();
   });
 });

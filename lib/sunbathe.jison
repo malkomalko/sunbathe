@@ -4,7 +4,7 @@
 
 \n+                                         return 'NEWLINE'
 \s+                                         /* skip whitespace */
-"template:"(.+)                             return 'TEMPLATE'
+"layout:"(.+)                               return 'LAYOUT'
 (.+)                                        return 'LINE'
 <<EOF>>                                     return 'EOF'
 
@@ -19,13 +19,13 @@ Program
   ;
 
 SourceElements
-  : Template
+  : Layout
   | SourceElements Token
   ;
 
-Template
-  : TEMPLATE {
-      new yy.Template(yy.file, ['TEMPLATE', @1.first_line, $1]);
+Layout
+  : LAYOUT {
+      new yy.Layout(yy.file, ['LAYOUT', @1.first_line, $1]);
     }
   ;
 

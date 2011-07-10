@@ -1,7 +1,7 @@
 {
   "name": "sunbathe",
   "version": "0.1.0",
-  "description": "templates of the future today",
+  "description": "layouts of the future today",
   "keywords": ["layout", "css", "templates"],
   "author": "Rob Malko <robmalko@gmail.com>",
   "dependencies": {
