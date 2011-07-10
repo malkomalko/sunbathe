@@ -33,4 +33,12 @@ describe('When parsing input', function(it) {
     parsedFile.layouts.should.eql([{ name: 'another crazy layout' }]);
     test.finish();
   });
+
+  it('should not read in two layout tokens on the same line', function(test) {
+    var parser = createParser();
+    var parsedFile = parser.parse("layout: what the layout:");
+
+    parsedFile.layouts.should.eql([{ name: 'what the layout:' }]);
+    test.finish();
+  });
 });
