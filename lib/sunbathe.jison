@@ -4,18 +4,19 @@
 
 \n+                                         return 'NEWLINE'
 \s+                                         /* skip whitespace */
-"layout:"(.+)                               return 'LAYOUT'
+^"layout:"(.+)                              return 'LAYOUT'
 (.+)                                        return 'LINE'
 <<EOF>>                                     return 'EOF'
 
 /lex
 
-%start Program
+%start File
 
 %%
 
-Program
-  : SourceElements
+File
+  : /* empty */
+  | File SourceElements
   ;
 
 SourceElements
@@ -31,14 +32,8 @@ Layout
 
 Token
   : Line
-  | Whitespace
+  | NEWLINE { new yy.Newline(yy.file, ['NEWLINE', @1.first_line, $1]); }
   | EOF { return yy.EOF(yy.file); }
-  ;
-
-Whitespace
-  : NEWLINE {
-      new yy.Newline(yy.file, ['NEWLINE', @1.first_line, $1]);
-    }
   ;
 
 Line
