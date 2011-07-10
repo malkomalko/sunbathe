@@ -4,7 +4,9 @@
   "description": "templates of the future today",
   "keywords": ["layout", "css", "templates"],
   "author": "Rob Malko <robmalko@gmail.com>",
-  "dependencies": {},
+  "dependencies": {
+    "underscore": "1.1.6"
+  },
   "devDependencies": {
     "should": "0.2.1",
     "sinon": "1.1.1"
