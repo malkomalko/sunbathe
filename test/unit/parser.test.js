@@ -21,6 +21,7 @@ describe('When parsing input', function(it) {
   it('finds a name token', function(test) {
     var parser = createParser();
     var parsedFile = parser.parse("name: index");
+
     parsedFile.templates.should.eql([{ name: 'index' }]);
     test.finish();
   });
