@@ -2,11 +2,11 @@
 
 %%
 
-\n+               return 'NEWLINE'
-\s+               /* skip whitespace */
-"name:"(.+)       return 'NAME'
-(.+)              return 'LINE'
-<<EOF>>           return 'EOF'
+\n+                                         return 'NEWLINE'
+\s+                                         /* skip whitespace */
+"template:"(.+)                             return 'TEMPLATE'
+(.+)                                        return 'LINE'
+<<EOF>>                                     return 'EOF'
 
 /lex
 
@@ -24,8 +24,8 @@ SourceElements
   ;
 
 Template
-  : NAME {
-      new yy.Template(yy.file, ['TEMPLATE_NAME', @1.first_line, $1]);
+  : TEMPLATE {
+      new yy.Template(yy.file, ['TEMPLATE', @1.first_line, $1]);
     }
   ;
 
