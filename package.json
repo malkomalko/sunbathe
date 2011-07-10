@@ -1,0 +1,14 @@
+{
+  "name": "sunbathe",
+  "version": "0.1.0",
+  "description": "templates of the future today",
+  "keywords": ["layout", "css", "templates"],
+  "author": "Rob Malko <robmalko@gmail.com>",
+  "dependencies": {},
+  "devDependencies": {
+    "should": "0.2.1",
+    "sinon": "1.1.1"
+  },
+  "bin": { "sunbathe": "./bin/sunbathe" },
+  "engines": { "node": "0.4.x" }
+}
