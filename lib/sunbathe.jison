@@ -1,12 +1,14 @@
 %lex
 
+%s layout
+
 %%
 
-\n+                                         return 'NEWLINE'
-\s+                                         /* skip whitespace */
-^"layout:"(.+)                              return 'LAYOUT'
-(.+)                                        return 'LINE'
-<<EOF>>                                     return 'EOF'
+\n+                             return 'NEWLINE'
+\s+                             /* skip whitespace */
+^"layout:"(.+)                  this.begin('layout'); return 'LAYOUT';
+(.+)                            return 'LINE'
+<<EOF>>                         return 'EOF'
 
 /lex
 
